@@ -60,6 +60,6 @@ with DAG(dag_id = "user_processing",start_date = datetime(2023,1,1),schedule_int
                                   python_callable = _process_user)
     
     store_user = PythonOperator(task_id = 'store_user',
-                                python_callable = '_store_users')
+                                python_callable = _store_users)
     
     create_table >> is_api_available >> extract_user >> process_user >>store_user
