@@ -50,3 +50,5 @@ with DAG(dag_id = "user_processing",start_date = datetime(2023,1,1),schedule_int
     
     process_user = PythonOperator(task_id = 'process_user',
                                   python_callable = _process_user)
+    
+    extract_user >> process_user
